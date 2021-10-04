@@ -188,7 +188,7 @@ public final class ArbitraryBuilder<T> {
 
 			buildArbitraryBuilder.apply(actualManipulators);
 			buildTree.update(buildArbitraryBuilder.generator, generatorMap);
-			return buildTree.getArbitrary();
+			return buildTree.getArbitrary().withoutEdgeCases();	// for performance
 		}, this.validator, this.validOnly);
 	}
 
@@ -209,7 +209,7 @@ public final class ArbitraryBuilder<T> {
 			this.apply(this.getActiveManipulators());
 			this.builderManipulators.clear();
 			buildTree.update(this.generator, generatorMap);
-			return buildTree.getArbitrary();
+			return buildTree.getArbitrary().withoutEdgeCases();	// for performance
 		}, this.validator, this.validOnly).sample();
 	}
 
